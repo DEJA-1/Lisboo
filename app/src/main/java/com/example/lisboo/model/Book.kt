@@ -10,7 +10,8 @@ import kotlinx.parcelize.Parcelize
 data class Book(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
-    val score: Int,
+    val rate: Int,
     val title: String,
-    val date: String
+    val date: String,
+    val details: String
 ): Parcelable

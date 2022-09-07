@@ -49,9 +49,10 @@ class UpdateFragment : Fragment() {
         binding.deleteButton.setOnClickListener { deleteItem() }
 
         //setting properties equal to book being updated
-        binding.editTextBookScoreUpdate.setText(args.currentBook.score.toString())
+        binding.editTextBookRateUpdate.setText(args.currentBook.rate.toString())
         binding.editTextBookNameUpdate.setText(args.currentBook.title)
         binding.editTextBookDateUpdate.setText(args.currentBook.date)
+        binding.editTextBookDetailsUpdate.setText(args.currentBook.details)
     }
 
     private fun deleteItem() {
@@ -73,12 +74,13 @@ class UpdateFragment : Fragment() {
     }
 
     private fun updateItem() {
-        val bookRate = Integer.parseInt(binding.editTextBookScoreUpdate.text.toString())
+        val bookRate = Integer.parseInt(binding.editTextBookRateUpdate.text.toString())
         val bookName = binding.editTextBookNameUpdate.text.toString()
         val bookDate = binding.editTextBookDateUpdate.text.toString()
+        val bookDetails = binding.editTextBookDetailsUpdate.text.toString()
 
-        if (inputCheck(bookName, bookDate, bookRate)){
-            val updatedBook = Book(args.currentBook.id, bookRate, bookName, bookDate)
+        if (inputCheck(bookName, bookDate, bookRate, bookDetails)){
+            val updatedBook = Book(args.currentBook.id, bookRate, bookName, bookDate, bookDetails)
 
             mBookViewModel.updateBook(updatedBook)
             //navigating back
@@ -90,10 +92,8 @@ class UpdateFragment : Fragment() {
     }
 
 
-
-
-    private fun inputCheck(bookName: String, bookDate: String, bookRate: Int): Boolean{
-        return !(TextUtils.isEmpty(bookName) && TextUtils.isEmpty(bookDate) && TextUtils.isEmpty(
+    private fun inputCheck(bookName: String, bookDate: String, bookRate: Int, bookDetails: String): Boolean{
+        return !(TextUtils.isEmpty(bookName) || TextUtils.isEmpty(bookDate) || TextUtils.isEmpty(
             bookRate.toString()))
     }
 }

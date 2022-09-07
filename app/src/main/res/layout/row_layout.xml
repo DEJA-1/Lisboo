@@ -7,10 +7,10 @@
     android:id="@+id/row_Layout">
 
     <TextView
-        android:id="@+id/book_score"
+        android:id="@+id/book_rate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="16dp"
+        android:padding="16sp"
         android:textSize="64sp"
         android:textStyle="bold"
         android:textColor="@color/orange_main"
@@ -22,15 +22,15 @@
     <TextView
         android:id="@+id/book_name"
         android:layout_marginTop="27sp"
-        android:layout_marginStart="70dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginStart="70sp"
+        android:layout_marginEnd="40sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="32sp"
         android:textColor="@color/white"
         android:textStyle="bold|italic"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/book_score"
+        app:layout_constraintStart_toEndOf="@id/book_rate"
         tools:text="Atomic Habits"
         tools:textColor="@color/black"/>
 
@@ -41,7 +41,7 @@
         android:textSize="16sp"
         android:textColor="@color/orange_main"
         app:layout_constraintTop_toBottomOf="@id/book_name"
-        app:layout_constraintStart_toEndOf="@id/book_score"
+        app:layout_constraintStart_toEndOf="@id/book_rate"
         tools:text="28/03/2022"/>
 
 

@@ -15,7 +15,7 @@
             android:id="@+id/main_fragment_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp"
+            android:padding="16sp"
             android:text="@string/main_fragment_string"
             android:textColor="@color/white"
             android:textSize="32sp"

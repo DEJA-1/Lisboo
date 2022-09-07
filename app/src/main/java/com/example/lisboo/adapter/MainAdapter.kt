@@ -16,18 +16,15 @@ import com.example.lisboo.fragments.UpdateFragment
 import com.example.lisboo.model.Book
 import com.example.lisboo.viewmodel.BookViewModel
 
-class MainAdapter: RecyclerView.Adapter<MainAdapter.MyViewHolder>() {
+class MainAdapter : RecyclerView.Adapter<MainAdapter.MyViewHolder>() {
 
     private var bookList = emptyList<Book>()
-    //initializing MainFragment, required to use deleteBook method
 
-    private lateinit var mBookViewModel: BookViewModel
-
-    class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        val bookScore : TextView = itemView.findViewById(R.id.book_score)
-        val bookName : TextView = itemView.findViewById(R.id.book_name)
-        val bookDate : TextView = itemView.findViewById(R.id.book_date)
-        val row : View = itemView.findViewById(R.id.row_Layout)
+    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val bookScore: TextView = itemView.findViewById(R.id.book_rate)
+        val bookName: TextView = itemView.findViewById(R.id.book_name)
+        val bookDate: TextView = itemView.findViewById(R.id.book_date)
+        val row: View = itemView.findViewById(R.id.row_Layout)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -37,7 +34,7 @@ class MainAdapter: RecyclerView.Adapter<MainAdapter.MyViewHolder>() {
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = bookList[position]
-        holder.bookScore.text = currentItem.score.toString()
+        holder.bookScore.text = currentItem.rate.toString()
         holder.bookName.text = currentItem.title
         holder.bookDate.text = currentItem.date
         holder.row.setOnClickListener {
@@ -51,8 +48,7 @@ class MainAdapter: RecyclerView.Adapter<MainAdapter.MyViewHolder>() {
         return bookList.size
     }
 
-
-    fun setData(book: List<Book>){
+    fun setData(book: List<Book>) {
         this.bookList = book
         notifyDataSetChanged()
     }

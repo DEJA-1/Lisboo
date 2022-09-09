@@ -44,13 +44,42 @@ class AddFragment : Fragment() {
         binding.addButton.setOnClickListener { onButtonSaveClicked() }
 
         //description field error
+        binding.editTextBookName.doOnTextChanged { text, start, before, count ->
+            if (text!!.isNotEmpty()){
+                binding.textInputLayoutName.helperText = null
+            } else {
+                binding.textInputLayoutName.helperText = "required*"
+            }
+        }
+
+        binding.editTextBookRate.doOnTextChanged { text, start, before, count ->
+            if (text!!.isNotEmpty()){
+                binding.textInputLayoutRate.helperText = null
+            } else {
+                binding.textInputLayoutRate.helperText = "required* (1-5)"
+            }
+        }
+
+        binding.editTextBookDate.doOnTextChanged { text, start, before, count ->
+            if (text!!.isNotEmpty()){
+                binding.textInputLayoutDate.helperText = null
+            } else {
+                binding.textInputLayoutDate.helperText = "required*"
+            }
+        }
+
         binding.editTextBookDetails.doOnTextChanged { text, start, before, count ->
             if (text!!.length > 100) {
                 binding.textInputLayoutDetails.error = "No More!"
             } else if (text.length <= 100) {
                 binding.textInputLayoutDetails.error = null
             }
-
+            //displaying helper text whether the field is empty
+            if (text.isNotEmpty()){
+                binding.textInputLayoutDetails.helperText = null
+            } else {
+                binding.textInputLayoutDetails.helperText = "required*"
+            }
         }
     }
 
@@ -71,25 +100,25 @@ class AddFragment : Fragment() {
             findNavController().navigate(R.id.action_addFragment_to_mainFragment)
         } else {
             //displaying the error message in particular field
-            if (TextUtils.isEmpty(bookName)){
+            if (TextUtils.isEmpty(bookName)) {
                 binding.textInputLayoutName.error = "Fill out the field!"
             } else {
                 binding.textInputLayoutName.error = null
             }
 
-            if (TextUtils.isEmpty(bookRate)){
+            if (TextUtils.isEmpty(bookRate)) {
                 binding.textInputLayoutRate.error = "Fill out the field!"
             } else {
                 binding.textInputLayoutRate.error = null
             }
 
-            if (TextUtils.isEmpty(bookDate)){
+            if (TextUtils.isEmpty(bookDate)) {
                 binding.textInputLayoutDate.error = "Fill out the field!"
             } else {
                 binding.textInputLayoutDate.error = null
             }
 
-            if (TextUtils.isEmpty(bookDetails)){
+            if (TextUtils.isEmpty(bookDetails)) {
                 binding.textInputLayoutDetails.error = "Fill out the field!"
             } else {
                 binding.textInputLayoutDetails.error = null

@@ -45,13 +45,13 @@ class AddFragment : Fragment() {
     //adding data to the database
     private fun onButtonSaveClicked() {
         val bookName = binding.editTextBookName.text.toString()
-        val bookRate = binding.editTextBookRate.text
+        val bookRate = binding.editTextBookRate.text.toString()
         val bookDate = binding.editTextBookDate.text.toString()
         val bookDetails = binding.editTextBookDetails.text.toString()
 
         if (inputCheck(bookName, bookDate, bookRate, bookDetails)){
             //create book object
-            val book = Book(0, Integer.parseInt(bookRate.toString()), bookName, bookDate, bookDetails)
+            val book = Book(0, Integer.parseInt(bookRate), bookName, bookDate, bookDetails)
             //adding data to the database
             mBookViewModel.addBook(book)
             Toast.makeText(requireContext(), "Successfully added!", Toast.LENGTH_LONG).show()
@@ -62,7 +62,7 @@ class AddFragment : Fragment() {
         }
     }
 
-    private fun inputCheck(bookName: String, bookDate: String, bookRate: Editable, bookDetails: String): Boolean{
+    private fun inputCheck(bookName: String, bookDate: String, bookRate: String, bookDetails: String): Boolean{
         return !(TextUtils.isEmpty(bookName) || TextUtils.isEmpty(bookDate) || TextUtils.isEmpty(bookRate) || TextUtils.isEmpty(bookDetails))
     }
 

@@ -4,7 +4,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="main_fragment_string">Your Books</string>
     <string name="hint_string">Enter title</string>
-    <string name="hint_string_rate" tools:ignore="TypographyDashes">Enter rate (1-9)</string>
+    <string name="hint_string_rate" tools:ignore="TypographyDashes">Enter rate</string>
     <string name="hint_string_date">Enter finish date (dd/mm/yyyy)</string>
     <string name="add_button">SAVE</string>
     <string name="cancel_button_string">Cancel</string>

@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="red_status">#F5450D</color>
     <color name="orange_main">#F8630A</color>
+    <color name="red">#B00020</color>
 </resources>

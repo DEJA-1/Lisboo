@@ -8,83 +8,123 @@
     android:background="@drawable/gradient_background"
     android:padding="24dp">
 
-    <EditText
-        android:id="@+id/edit_text_book_name"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_Layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:backgroundTint="@color/orange_main"
-        android:textColor="@color/orange_main"
-        android:hint="@string/hint_string"
-        android:textColorHint="@color/orange_main"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:layout_marginTop="90dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:hint="Enter your title"
+        android:textColorHint="@color/white"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:helperText="required*"
+        app:helperTextTextColor="@color/red"
+        app:boxStrokeColor="@color/text_input_layout_stroke_color"
+        app:boxStrokeWidth="3dp"
+        app:startIconTint="@color/orange_main"
+        app:startIconDrawable="@drawable/ic_title"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="Autofill" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <EditText
-        android:id="@+id/edit_text_book_rate"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_text_book_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:inputType="textPersonName"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_Layout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number"
-        android:backgroundTint="@color/orange_main"
-        android:textColor="@color/orange_main"
+        android:layout_marginTop="6dp"
         android:hint="@string/hint_string_rate"
-        android:maxLength="1"
-        android:textColorHint="@color/orange_main"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/edit_text_book_name"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textColorHint="@color/white"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:helperText="required* (1-5)"
+        app:helperTextTextColor="@color/red"
+        app:boxStrokeColor="@color/text_input_layout_stroke_color"
+        app:boxStrokeWidth="3dp"
+        app:startIconTint="@color/orange_main"
+        app:startIconDrawable="@drawable/ic_baseline_star_rate_24"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="Autofill" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_input_Layout">
 
-    <EditText
-        android:id="@+id/edit_text_book_date"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_text_book_rate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:textColor="@color/white"
+            android:maxLength="1"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_Layout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="date"
-        android:backgroundTint="@color/orange_main"
-        android:textColor="@color/orange_main"
-        android:hint="@string/hint_string_date"
-        android:maxLength="10"
-        android:textColorHint="@color/orange_main"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/edit_text_book_rate"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="6dp"
+        android:textColorHint="@color/white"
+        android:hint="Enter your date"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:helperText="required* (dd/mm/yy)"
+        app:helperTextTextColor="@color/red"
+        app:boxStrokeColor="@color/text_input_layout_stroke_color"
+        app:boxStrokeWidth="3dp"
+        app:startIconTint="@color/orange_main"
+        app:startIconDrawable="@drawable/ic_date"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="Autofill,TextFields" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_input_Layout2">
 
-    <EditText
-        android:id="@+id/edit_text_book_details"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_text_book_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:inputType="date"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_Layout4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:backgroundTint="@color/orange_main"
-        android:textColor="@color/orange_main"
-        android:hint="@string/edit_text_book_details_string"
-        android:maxLength="150"
-        android:textColorHint="@color/orange_main"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/edit_text_book_date"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="6dp"
+        android:hint="Enter your description"
+        android:textColorHint="@color/white"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:counterEnabled="true"
+        app:counterMaxLength="100"
+        app:counterTextColor="@android:color/darker_gray"
+        app:helperText="required*"
+        app:helperTextTextColor="@color/red"
+        app:boxStrokeColor="@color/text_input_layout_stroke_color"
+        app:boxStrokeWidth="3dp"
+        app:startIconTint="@color/orange_main"
+        app:startIconDrawable="@drawable/ic_comment"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="Autofill">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_input_Layout3">
 
-    </EditText>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_text_book_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:textColor="@color/white"
+            android:maxLength="101"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/edit_text_book_details"
+        app:layout_constraintTop_toBottomOf="@id/text_input_Layout4"
         android:orientation="horizontal"
         android:layout_marginTop="16dp">
 
@@ -114,9 +154,6 @@
         </com.google.android.material.button.MaterialButton>
 
     </LinearLayout>
-
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

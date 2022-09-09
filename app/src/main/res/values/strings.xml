@@ -14,4 +14,7 @@
     <string name="delete_string">delete</string>
     <string name="details_string">Your Details</string>
     <string name="edit_text_book_details_string">Enter details about the book</string>
+    <string name="hint_date_string">Click to select date</string>
+    <string name="hint_details_string">Enter your description</string>
+    <string name="hint_title_string">Enter your title</string>
 </resources>

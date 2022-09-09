@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="90dp"
-        android:hint="Enter your title"
+        android:hint="@string/hint_title_string"
         android:textColorHint="@color/white"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:errorEnabled="true"
@@ -75,7 +75,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
         android:textColorHint="@color/white"
-        android:hint="Enter your date"
+        android:hint="@string/hint_date_string"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:endIconMode="clear_text"
         app:endIconTint="@color/orange_main"
@@ -94,7 +94,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:inputType="date"/>
+            android:maxLength="10"
+            android:inputType="number"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -103,7 +104,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
-        android:hint="Enter your description"
+        android:hint="@string/hint_details_string"
         android:textColorHint="@color/white"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:endIconMode="clear_text"

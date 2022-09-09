@@ -1,5 +1,6 @@
 package com.example.lisboo.fragments
 
+import android.app.DatePickerDialog
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextUtils
@@ -8,6 +9,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.DatePicker
 import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.ViewModelProvider
@@ -16,6 +18,7 @@ import com.example.lisboo.R
 import com.example.lisboo.databinding.FragmentAddBinding
 import com.example.lisboo.model.Book
 import com.example.lisboo.viewmodel.BookViewModel
+import java.util.*
 
 class AddFragment : Fragment() {
     private var _binding: FragmentAddBinding? = null
@@ -81,6 +84,21 @@ class AddFragment : Fragment() {
                 binding.textInputLayoutDetails.helperText = "required*"
             }
         }
+
+        //picking up the date
+        binding.editTextBookDate.setOnClickListener { pickDate() }
+    }
+
+    private fun pickDate() {
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)+1
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+        val datepicker = DatePickerDialog(requireContext(), DatePickerDialog.OnDateSetListener{view: DatePicker, mYear: Int, mMonth: Int, mDay: Int ->
+            binding.editTextBookDate.setText(""+ mDay + "/" + mMonth + "/" + mYear)
+        }, year, month, day)
+        datepicker.show()
     }
 
     //adding data to the database

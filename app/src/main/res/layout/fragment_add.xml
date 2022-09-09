@@ -9,13 +9,17 @@
     android:padding="24dp">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/text_input_Layout"
+        android:id="@+id/text_input_Layout_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="90dp"
         android:hint="Enter your title"
         android:textColorHint="@color/white"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:errorEnabled="true"
+        app:errorIconDrawable="@drawable/ic_error"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/orange_main"
         app:helperText="required*"
         app:helperTextTextColor="@color/red"
         app:boxStrokeColor="@color/text_input_layout_stroke_color"
@@ -36,13 +40,15 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/text_input_Layout2"
+        android:id="@+id/text_input_Layout_rate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
         android:hint="@string/hint_string_rate"
         android:textColorHint="@color/white"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/orange_main"
         app:helperText="required* (1-5)"
         app:helperTextTextColor="@color/red"
         app:boxStrokeColor="@color/text_input_layout_stroke_color"
@@ -51,7 +57,7 @@
         app:startIconDrawable="@drawable/ic_baseline_star_rate_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_input_Layout">
+        app:layout_constraintTop_toBottomOf="@id/text_input_Layout_name">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edit_text_book_rate"
@@ -64,13 +70,15 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/text_input_Layout3"
+        android:id="@+id/text_input_Layout_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
         android:textColorHint="@color/white"
         android:hint="Enter your date"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/orange_main"
         app:helperText="required* (dd/mm/yy)"
         app:helperTextTextColor="@color/red"
         app:boxStrokeColor="@color/text_input_layout_stroke_color"
@@ -79,7 +87,7 @@
         app:startIconDrawable="@drawable/ic_date"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_input_Layout2">
+        app:layout_constraintTop_toBottomOf="@id/text_input_Layout_rate">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edit_text_book_date"
@@ -91,13 +99,15 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/text_input_Layout4"
+        android:id="@+id/text_input_Layout_details"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
         android:hint="Enter your description"
         android:textColorHint="@color/white"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/orange_main"
         app:counterEnabled="true"
         app:counterMaxLength="100"
         app:counterTextColor="@android:color/darker_gray"
@@ -109,7 +119,7 @@
         app:startIconDrawable="@drawable/ic_comment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_input_Layout3">
+        app:layout_constraintTop_toBottomOf="@id/text_input_Layout_date">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edit_text_book_details"
@@ -124,7 +134,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/text_input_Layout4"
+        app:layout_constraintTop_toBottomOf="@id/text_input_Layout_details"
         android:orientation="horizontal"
         android:layout_marginTop="16dp">
 

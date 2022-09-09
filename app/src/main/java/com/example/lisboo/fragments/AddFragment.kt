@@ -3,11 +3,13 @@ package com.example.lisboo.fragments
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextUtils
+import android.text.TextUtils.isEmpty
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.lisboo.R
@@ -40,6 +42,16 @@ class AddFragment : Fragment() {
 
         //save button
         binding.addButton.setOnClickListener { onButtonSaveClicked() }
+
+        //description field error
+        binding.editTextBookDetails.doOnTextChanged { text, start, before, count ->
+            if (text!!.length > 100) {
+                binding.textInputLayoutDetails.error = "No More!"
+            } else if (text.length <= 100) {
+                binding.textInputLayoutDetails.error = null
+            }
+
+        }
     }
 
     //adding data to the database
@@ -49,7 +61,7 @@ class AddFragment : Fragment() {
         val bookDate = binding.editTextBookDate.text.toString()
         val bookDetails = binding.editTextBookDetails.text.toString()
 
-        if (inputCheck(bookName, bookDate, bookRate, bookDetails)){
+        if (inputCheck(bookName, bookDate, bookRate, bookDetails)) {
             //create book object
             val book = Book(0, Integer.parseInt(bookRate), bookName, bookDate, bookDetails)
             //adding data to the database
@@ -57,13 +69,42 @@ class AddFragment : Fragment() {
             Toast.makeText(requireContext(), "Successfully added!", Toast.LENGTH_LONG).show()
             //navigating back to the main fragment
             findNavController().navigate(R.id.action_addFragment_to_mainFragment)
-        } else{
-            Toast.makeText(requireContext(), "Please enter the data.", Toast.LENGTH_LONG).show()
+        } else {
+            //displaying the error message in particular field
+            if (TextUtils.isEmpty(bookName)){
+                binding.textInputLayoutName.error = "Fill out the field!"
+            } else {
+                binding.textInputLayoutName.error = null
+            }
+
+            if (TextUtils.isEmpty(bookRate)){
+                binding.textInputLayoutRate.error = "Fill out the field!"
+            } else {
+                binding.textInputLayoutRate.error = null
+            }
+
+            if (TextUtils.isEmpty(bookDate)){
+                binding.textInputLayoutDate.error = "Fill out the field!"
+            } else {
+                binding.textInputLayoutDate.error = null
+            }
+
+            if (TextUtils.isEmpty(bookDetails)){
+                binding.textInputLayoutDetails.error = "Fill out the field!"
+            } else {
+                binding.textInputLayoutDetails.error = null
+            }
         }
     }
 
-    private fun inputCheck(bookName: String, bookDate: String, bookRate: String, bookDetails: String): Boolean{
-        return !(TextUtils.isEmpty(bookName) || TextUtils.isEmpty(bookDate) || TextUtils.isEmpty(bookRate) || TextUtils.isEmpty(bookDetails))
+    private fun inputCheck(
+        bookName: String,
+        bookDate: String,
+        bookRate: String,
+        bookDetails: String,
+    ): Boolean {
+        return !(TextUtils.isEmpty(bookName) || TextUtils.isEmpty(bookDate) || TextUtils.isEmpty(
+            bookRate) || TextUtils.isEmpty(bookDetails))
     }
 
     private fun onButtonCancelClicked() {
